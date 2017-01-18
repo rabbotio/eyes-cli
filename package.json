@@ -1,0 +1,89 @@
+{
+  "name": "eyes-cli",
+  "version": "0.1.0",
+  "description": "CLI for an eyes",
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "scripts": {
+    "test": "xo && ava",
+    "pack": "pkg . --out-dir packed"
+  },
+  "pkg": {
+    "scripts": [
+      "./bin/*",
+      "./lib/**/*"
+    ]
+  },
+  "bin": {
+    "eyes": "./bin/eyes.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rabbotio/eyes-cli.git"
+  },
+  "keywords": [
+    "eyes"
+  ],
+  "author": "katopz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rabbotio/eyes-cli/issues"
+  },
+  "homepage": "https://github.com/rabbotio/eyes-cli#readme",
+  "ava": {
+    "failFast": true,
+    "files": [
+      "test/*.js"
+    ],
+    "require": [
+      "async-to-gen/register"
+    ]
+  },
+  "greenkeeper": {
+    "emails": false
+  },
+  "xo": {
+    "esnext": true,
+    "space": true,
+    "semicolon": false,
+    "ignores": [
+      "packed/**",
+      "test/_fixtures/**"
+    ],
+    "rules": {
+      "import/no-unassigned-import": 0,
+      "import/no-dynamic-require": 0,
+      "import/no-unresolved": 0,
+      "max-depth": 0,
+      "no-use-before-define": 0,
+      "complexity": 0,
+      "no-control-regex": 0
+    }
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "dependencies": {
+    "async-retry": "^0.2.1",
+    "async-to-gen": "^1.3.0",
+    "chalk": "^1.1.3",
+    "crypto": "0.0.3",
+    "email-validator": "^1.0.7",
+    "fs-promise": "^1.0.0",
+    "graceful-fs": "^4.1.11",
+    "is-url": "^1.2.2",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "ms": "^0.7.2",
+    "node-fetch": "^1.6.3",
+    "node-version": "^1.0.0",
+    "update-notifier": "^1.0.3"
+  },
+  "devDependencies": {
+    "ava": "^0.17.0",
+    "pkg": "^3.0.0-beta.22",
+    "xo": "^0.17.1"
+  }
+}
