@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
 // Native
-const {resolve} = require('path')
+const { resolve } = require('path')
 
 // Packages
 const nodeVersion = require('node-version')
 const updateNotifier = require('update-notifier')
 
 // Ours
-const {error} = require('../lib/error')
+const { error } = require('../lib/error')
 const pkg = require('../package')
 
 // Support for keywords "async" and "await"
@@ -34,12 +34,14 @@ const commands = new Set([
   defaultCommand,
   'help',
   'scan',
+  'ssl',
   'perf'
 ])
 
 const aliases = new Map([
   ['h', 'help'],
   ['s', 'scan'],
+  ['ssl', 'ssl'],
   ['p', 'perf']
 ])
 
