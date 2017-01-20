@@ -32,7 +32,7 @@ if (nodeVersion.major < 6) {
 
 // Only check for updates in the npm version
 if (!process.pkg) {
-  updateNotifier({pkg}).notify()
+  updateNotifier({ pkg }).notify()
 }
 
 // This command will be run if no other sub command is specified
@@ -42,15 +42,8 @@ const commands = new Set([
   defaultCommand,
   'help',
   'scan',
-  'ssl',
+  'ssllabs',
   'perf'
-])
-
-const aliases = new Map([
-  ['h', 'help'],
-  ['s', 'scan'],
-  ['ssl', 'ssl'],
-  ['p', 'perf']
 ])
 
 let cmd = defaultCommand
@@ -71,8 +64,6 @@ if (index > -1) {
 
     args.unshift('--help')
   }
-
-  cmd = aliases.get(cmd) || cmd
 }
 
 const bin = resolve(__dirname, 'eyes-' + cmd + '.js')

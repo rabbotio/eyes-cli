@@ -1,15 +1,18 @@
 # eyes-cli
 CLI for an eyes
 
+# Setup
+- Add `bin/serviceAccountKey.json` from our `rabbot.io-credentials` excel or by [download](https://console.firebase.google.com/project/eyes-c4e79/settings/serviceaccounts/adminsdk).
+- Add `bin/.env` token from our `rabbot.io-credentials` excel.
+
+# Scan
 ```shell
-$ node eyes --url http://rabbot.io
+# With ssllab
+$ node eyes ssllabs --url http://rabbot.io
 ```
 
 TODO
-- [ ] Use real scan via `Docker`.
-- [ ] Listen to process event and maybe emit for expressjs to use as REST API.
-- [ ] Add `tool` params.
-- [ ] Add `email` params.
+- [ ] Auto add protocol.
 - [ ] Commit to Firebase and mark as committed.
 - [ ] Push to email and mark as pushed.
 - [ ] Scan until queue is empty.

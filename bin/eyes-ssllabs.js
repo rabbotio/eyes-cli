@@ -7,7 +7,7 @@ const exit = require('../lib/exit')
 const { getOutURI } = require('../lib/config')
 const report = require('../lib/report')
 const { error } = require('../lib/error')
-const { deploy } = require('../lib/firebase')
+const { init, deploy } = require('../lib/firebase')
 
 const getOutHTMLString = require('../lib/bake')
 
@@ -37,6 +37,9 @@ exec(`docker run ${image} ${scan_opts} ${url}`, async (error, stdout, stderr) =>
 
   // Will deploy to Firebase, TODO : Mark as deployed.  
   await deploy(process.env.FIREBASE_TOKEN)
+
+  // TODO : Update Firebase if deploy succeed.
+  await init(process.env.FIREBASE_URL)
 
   // Gracefully exit
   exit(0)
