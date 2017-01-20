@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
 // Native
+require('dotenv').config()
+if (!process.env.FIREBASE_TOKEN) {
+  error('Eyes requires .env with FIREBASE_TOKEN')
+}
+
 const { resolve } = require('path')
 
 // Packages
@@ -10,6 +15,9 @@ const updateNotifier = require('update-notifier')
 // Ours
 const { error } = require('../lib/error')
 const pkg = require('../package')
+
+// Ignore register
+require('firebase-tools')
 
 // Support for keywords "async" and "await"
 require('async-to-gen/register')({

@@ -7,6 +7,7 @@ const exit = require('../lib/exit')
 const { getOutURI } = require('../lib/config')
 const report = require('../lib/report')
 const { error } = require('../lib/error')
+const { deploy } = require('../lib/firebase')
 
 const getOutHTMLString = require('../lib/bake')
 
@@ -20,17 +21,22 @@ if (!argv.url) {
 
 // Check SSL
 const image = "jumanjiman/ssllabs-scan:latest"
-const scan_opts = "-usecache -quiet"
+const scan_opts = "-usecache -quiet" // See : https://github.com/ssllabs/ssllabs-scan#usage
 const url = argv.url
 const email = argv.email
+const verbose = false
 
 exec(`docker run ${image} ${scan_opts} ${url}`, async (error, stdout, stderr) => {
+  // Log
   error && console.log(`error:${error}`)
-  stdout && console.log(`stdout:${stdout}`)
+  verbose && stdout && console.log(`stdout:${stdout}`)
   stderr && console.log(`stderr:${stderr}`)
 
   // Make report
-  await report(getOutHTMLString(stdout), getOutURI(url), email)
+  await report(getOutURI(url), getOutHTMLString(stdout), email)
+
+  // Will deploy to Firebase, TODO : Mark as deployed.  
+  await deploy(process.env.FIREBASE_TOKEN)
 
   // Gracefully exit
   exit(0)
