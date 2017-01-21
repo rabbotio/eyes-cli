@@ -8,6 +8,7 @@ CLI for an eyes
 # Scan
 ```shell
 # With ssllab
+$ cd bin
 $ node eyes ssllabs --url http://rabbot.io
 ```
 
