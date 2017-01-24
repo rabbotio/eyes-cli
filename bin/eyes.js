@@ -43,6 +43,7 @@ const commands = new Set([
   'help',
   'scan',
   'ssllabs',
+  'golismero',
   'perf'
 ])
 
