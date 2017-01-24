@@ -4,15 +4,19 @@ CLI for an eyes
 # Setup
 - Add `bin/serviceAccountKey.json` from our `rabbot.io-credentials` excel or by [download](https://console.firebase.google.com/project/eyes-c4e79/settings/serviceaccounts/adminsdk).
 - Add `bin/.env` token from our `rabbot.io-credentials` excel.
-
+  ```env
+  FIREBASE_TOKEN="YOUR_FIREBASE_TOKEN"
+  FIREBASE_DB_URL="YOUR_FIREBASE_DB_URL"
+  ```
 # Scan
 ```shell
-# With ssllab
+# Get in bin
 $ cd bin
+
+# With ssllab
 $ node eyes ssllabs --url http://rabbot.io
 
 # With golismero
-$ cd bin
 $ node eyes golismero --url http://rabbot.io
 ```
 
