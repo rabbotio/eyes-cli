@@ -18,6 +18,8 @@ $ node eyes ssllabs --url http://rabbot.io
 
 # With golismero
 $ node eyes golismero --url http://rabbot.io
+# golismero help
+$ docker run --rm rabbotio/golismero --help
 ```
 
 TODO
