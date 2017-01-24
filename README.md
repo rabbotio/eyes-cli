@@ -10,6 +10,10 @@ CLI for an eyes
 # With ssllab
 $ cd bin
 $ node eyes ssllabs --url http://rabbot.io
+
+# With golismero
+$ cd bin
+$ node eyes golismero --url http://rabbot.io
 ```
 
 TODO
