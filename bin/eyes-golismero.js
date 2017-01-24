@@ -26,7 +26,7 @@ const outputFileName = path.basename(outputFullPath)
 const outputPath = path.dirname(outputFullPath)
 // image and command switch
 const image = "rabbotio/golismero:latest"
-const scan_opts = `-e ssl* -o /opt/golismero/result/${outputFileName}` // 
+const scan_opts = `-o /opt/golismero/result/${outputFileName}` // 
 const verbose = false
 
 var cmd = `docker run --rm -v ${outputPath}:/opt/golismero/result:rw ${image} ${scan_opts} ${url}`
