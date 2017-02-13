@@ -44,7 +44,8 @@ const commands = new Set([
   'scan',
   'ssllabs',
   'golismero',
-  'perf'
+  'perf',
+  'tlsobs'
 ])
 
 let cmd = defaultCommand

@@ -20,6 +20,10 @@ $ node eyes ssllabs --url http://rabbot.io
 $ node eyes golismero --url http://rabbot.io
 # golismero help
 $ docker run --rm rabbotio/golismero --help
+
+# With mozilla/tls-observatory
+$ cd bin
+$ node eyes tlsobs --url http://rabbot.io
 ```
 
 TODO
